@@ -1,4 +1,5 @@
 package comandos;
-public class Comandos {
+public interface Comandos {
+    void executar();
     
-}
+} 
