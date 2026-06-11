@@ -2,10 +2,12 @@ package estoque;
 
 import java.util.List;
 
+
 import exeções.ProdutoNaoEncontradoException;
+import observer.Observer;
 import produto.Produto;
 
-public class Estoque {
+public class Estoque implements Observer{
     private List<Produto> produtos;
 
 
@@ -26,5 +28,11 @@ public class Estoque {
             }
         }   
         throw new ProdutoNaoEncontradoException("Produto com ID " + ID + " não encontrado.");
+    }
+
+    public void atualizar(Produto produto){
+        if (produto.getQuantidade() < produto.getQuantidadeMinima()){
+            System.out.println("Produto abaixo da quantidade minima");
+        }
     }
 }
