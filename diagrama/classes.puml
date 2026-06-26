@@ -1,0 +1,159 @@
+@startuml classes
+
+title Sistema de Controle de Estoque - Diagrama UML
+
+
+'========================
+' Estoque e produtos
+'========================
+
+class Estoque {
+    - produtos : List<Produto>
+
+    + entradaProduto()
+    + saidaProduto()
+    + buscarProduto()
+    + verificarEstoque()
+    + carregarEstoque()
+    + salvarEstoque()
+}
+
+
+class Produto {
+    - ID : int
+    - nome : String
+    - quantidade : int
+    - estoqueMinimo : int
+    - observers : List <Observer>
+
+    + aumentarQuantidade()
+    + diminuirQuantidade()
+    + estaAbaixoDoMinimo() : boolean
+}
+
+
+Estoque "1" o-- "*" Produto
+
+
+'========================
+' Movimentação 
+'========================
+
+ class Movimentacao {
+    - data : LocalDate
+    - quantidade : int
+    - tipo : int
+    - produto : Produto
+    - usuario : Usuario
+
+}
+
+class Historico {
+    - movimentaçoes : List<Movimentação>
+
+    + adicionarMovimentação()
+    + carregarMovimentacao()
+    + salvarMovimentação()
+    + buscarMovimentacaoData()
+    + buscarMovimentacaoUsuario()
+    + buscarMovimentacaoQuantidade()
+    + buscarMovimentacaoProduto()
+
+}
+
+Produto "1" -- "*" Movimentacao
+Historico "1" o-- "*" Movimentacao
+
+'========================
+' comandos
+'========================
+
+interface Comandos {
+    + executar()
+}
+
+class EntradaProduto {
+    - estoque : Estoque
+    - quantidade : int
+    - produto : Produto
+    - usuario : Usuarios
+    - historioco : Historico
+
+    + executar()
+}
+
+
+class SaidaProduto {
+    - estoque : Estoque
+    - quantidade : int
+    - produto : Produto
+    - usuario : Usuarios
+    - historioco : Historico
+
+    + executar()
+}
+
+EntradaProduto ..|> Comandos
+SaidaProduto ..|> Comandos
+
+'========================
+' Relatórios
+'========================
+
+class Relatorio {
+    - data : LocalDate
+
+    + gerarRelatorio()
+}
+
+'============================
+' Factory Method e usuarios
+'============================
+
+ class UsuarioFactory {
+    - tipo : String
+    - nome : String
+    - senha : String
+
+    + criarUsuario()
+}
+
+ abstract class Usuario {
+    - nome : String
+    - senha : String
+
+}
+
+ class Administrador {
+    - nome : String
+    - senha : String
+}
+
+ class Gerente {
+    - nome : String
+    - senha : String
+}
+
+class ControleUsuarios{
+    - usuarios : List <Usuario>
+
+    + adicionarUsuario()
+    + removerUsuario()
+    + buscarUsuario()
+    + carregarUsuarios()
+    + salvarUsuarios()
+}
+
+ControleUsuarios "1" o-- "*" Usuario
+UsuarioFactory ..> Usuario
+Usuario <|-- Administrador
+Usuario <|-- Gerente
+
+'============================
+' Excessoes
+'============================
+
+class ProdutoNaoEncontradoException{
+    + ProdutoNaoEncontradoException()
+}
+@enduml

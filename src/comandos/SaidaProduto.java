@@ -7,7 +7,7 @@ import produto.Produto;
 import usuarios.Usuarios;
 
 public class SaidaProduto implements Comandos {
-        private Estoque estoque;
+    private Estoque estoque;
     private int quantidade;
     private Produto produto;
     private Usuarios usuario;
