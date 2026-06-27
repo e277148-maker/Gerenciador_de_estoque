@@ -1,24 +1,16 @@
 package produto;
 
-import java.util.List;
-
-
-import observer.Observer;
-import observer.Subject;
-
-public class Produto implements Subject {
+public class Produto {
     private String nome;
     private int quantidade;
     private int ID;
     private int quantidadeMinima;
-    private List <Observer> observers;
 
-    public Produto(String nome, int quantidade, int iD, int quantidadeMinima, List <Observer> observers) {
+    public Produto(String nome, int quantidade, int iD, int quantidadeMinima) {
         this.nome = nome;
         this.quantidade = quantidade;
         this.ID = iD;
         this.quantidadeMinima = quantidadeMinima;
-        this.observers = observers;
     }
     public String getNome() {
         return nome;
@@ -43,29 +35,5 @@ public class Produto implements Subject {
     }
     public void setQuantidadeMinima(int quantidadeMinima) {
         this.quantidadeMinima = quantidadeMinima;
-    }
-    public List<Observer> getObservers() {
-        return observers;
-    }
-    public void setObservers(List<Observer> observers) {
-        this.observers = observers;
-    }
-
-    public void adicionarObserver(Observer observer){
-        observers.add(observer);
-    }
-
-    public void removerObserver(Observer observer){
-        for (int i = 0; i < observers.size(); i++){
-            if(observers.get(i) == observer){
-                observers.remove(i);
-            }
-        }
-    }
-
-    public void notificarObservers(){
-        for (int i = 0; i < observers.size(); i++){
-            observers.get(i).atualizar(this);
-        }
     }
 }
