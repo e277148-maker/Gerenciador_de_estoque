@@ -12,6 +12,10 @@ import usuarios.Usuarios;
 public class Historico {
     private List<Movimentação> movimentaçoes;
 
+    public Historico(List<Movimentação> movimentaçoes) {
+        this.movimentaçoes = movimentaçoes;
+    }
+
     public void adicionarMovimentação(Movimentação movimentação){
         movimentaçoes.add(movimentação);
     }
@@ -66,5 +70,13 @@ public class Historico {
             }
         }
         return m;
+    }
+
+    public List<Movimentação> getMovimentaçoes() {
+        return movimentaçoes;
+    }
+
+    public void setMovimentaçoes(List<Movimentação> movimentaçoes) {
+        this.movimentaçoes = movimentaçoes;
     }
 }

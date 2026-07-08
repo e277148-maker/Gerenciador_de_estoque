@@ -10,6 +10,10 @@ public class Estoque {
     private List<Produto> produtos;
 
 
+    public Estoque(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
     public void entradaProduto(Produto produto, int quantidade){
         produto.setQuantidade(produto.getQuantidade() + quantidade);
     }
@@ -36,5 +40,13 @@ public class Estoque {
         if (produto.getQuantidade() < produto.getQuantidadeMinima()){
             System.out.println("Produto abaixo da quantidade minima");
         }
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 }
