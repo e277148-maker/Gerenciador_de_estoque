@@ -6,9 +6,21 @@ import java.util.List;
 public class ControleUsuarios {
     public List <Usuarios> usuarios;
 
+    public ControleUsuarios(List<Usuarios> usuarios) {
+        this.usuarios = usuarios;
+    }
+
     public void salvarUsuarios(){
         ObjectMapper mapper = new ObjectMapper();
 
         mapper.writeValue(new File("usuarios.json"), usuarios);
+    }
+
+    public List<Usuarios> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuarios> usuarios) {
+        this.usuarios = usuarios;
     }
 }
