@@ -12,6 +12,13 @@ public class CriarProduto implements Comandos {
     private Usuarios usuario;
     private Historico historico;
 
+    public CriarProduto(Estoque estoque, Produto produto, Usuarios usuario, Historico historico) {
+        this.estoque = estoque;
+        this.produto = produto;
+        this.usuario = usuario;
+        this.historico = historico;
+    }
+
     @Override
     public void executar(){
         Movimentação produtoNovo = new Movimentação("Criação de produto", produto.getQuantidade(), produto, usuario);

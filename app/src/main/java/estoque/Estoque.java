@@ -8,10 +8,12 @@ import produto.Produto;
 
 public class Estoque {
     private List<Produto> produtos;
+    private int geradorID;
 
 
-    public Estoque(List<Produto> produtos) {
+    public Estoque(List<Produto> produtos, int geradorID) {
         this.produtos = produtos;
+        this.geradorID = geradorID;
     }
 
     public void entradaProduto(Produto produto, int quantidade){
@@ -23,6 +25,8 @@ public class Estoque {
     }
 
     public void criarProduto(Produto produto){
+        geradorID++;
+        produto.setID(geradorID);
         produtos.add(produto);
     }
     
@@ -48,5 +52,13 @@ public class Estoque {
 
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
+    }
+
+    public int getGeradorID() {
+        return geradorID;
+    }
+
+    public void setGeradorID(int geradorID) {
+        this.geradorID = geradorID;
     }
 }

@@ -13,6 +13,14 @@ public class SaidaProduto implements Comandos {
     private Usuarios usuario;
     private Historico historico;
 
+    public SaidaProduto(Estoque estoque, int quantidade, Produto produto, Usuarios usuario, Historico historico) {
+        this.estoque = estoque;
+        this.quantidade = quantidade;
+        this.produto = produto;
+        this.usuario = usuario;
+        this.historico = historico;
+    }
+
     @Override
     public void executar(){
         if(quantidade < produto.getQuantidade()){

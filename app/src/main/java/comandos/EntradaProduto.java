@@ -14,6 +14,14 @@ public class EntradaProduto implements Comandos{
     private Usuarios usuario;
     private Historico historico;
 
+    public EntradaProduto(Estoque estoque, int quantidade, Produto produto, Usuarios usuario, Historico historico) {
+        this.estoque = estoque;
+        this.quantidade = quantidade;
+        this.produto = produto;
+        this.usuario = usuario;
+        this.historico = historico;
+    }
+
     @Override
     public void executar(){
         Movimentação entrada_de_produto = new Movimentação("Entrada de produto", quantidade, produto, usuario);

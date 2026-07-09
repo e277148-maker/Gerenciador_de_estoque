@@ -30,9 +30,9 @@ public class App {
         // Login
         Usuarios usuario = Login.ExecutarLogin(scanner, controleUsuarios.getUsuarios());
 
-        if(usuario.getTipo() == "Gerente"){
-            String escolha = scanner.next();
-            if (escolha == "")
+        String escolha = scanner.next();
+        if (escolha == "mexer estoque"){
+            
         }
     }
 }
