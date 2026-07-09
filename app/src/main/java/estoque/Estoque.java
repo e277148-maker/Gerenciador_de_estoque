@@ -3,7 +3,7 @@ package estoque;
 import java.util.List;
 
 
-import exeções.ProdutoNaoEncontradoException;
+import exeções.ObjetoNaoEncontradoException;
 import produto.Produto;
 
 public class Estoque {
@@ -30,14 +30,14 @@ public class Estoque {
         produtos.add(produto);
     }
     
-    public Produto buscarProduto(int ID) throws ProdutoNaoEncontradoException{
+    public Produto buscarProduto(int ID) throws ObjetoNaoEncontradoException{
         for(int i = 0; i < produtos.size(); i++){
             Produto p = produtos.get(i);
             if (ID == p.getID()){
                 return p;
             }
         }   
-        throw new ProdutoNaoEncontradoException("Produto com ID " + ID + " não encontrado.");
+        throw new ObjetoNaoEncontradoException("Produto com ID " + ID + " não encontrado.");
     }
 
     public void aferirQuantidade(Produto produto){

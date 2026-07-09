@@ -28,18 +28,19 @@ public class Historico {
         }
     }
 
-    public List <Movimentação> buscarMovimentação(Produto produto){
+    public List <Movimentação> buscarMovimentaçãoProduto(int ID_produto){
         List<Movimentação> m = new ArrayList<>();
         for (int i = 0; i < movimentaçoes.size(); i++){
             Produto p = movimentaçoes.get(i).getProduto();
-            if (produto == p){
+            int ID = p.getID();
+            if (ID == ID_produto){
                 m.add(movimentaçoes.get(i));
             }
         }
         return m;
     }
 
-    public List <Movimentação> buscarMovimentação(LocalDate data){
+    public List <Movimentação> buscarMovimentaçãoData(LocalDate data){
         List<Movimentação> m = new ArrayList<>();
         for (int i = 0; i < movimentaçoes.size(); i++){
             LocalDate d = movimentaçoes.get(i).getData();
@@ -50,18 +51,19 @@ public class Historico {
         return m;
     }
 
-    public List <Movimentação> buscarMovimentação(Usuarios usuario){
+    public List <Movimentação> buscarMovimentaçãoUsuario(String loginUsuario){
         List<Movimentação> m = new ArrayList<>();
         for (int i = 0; i < movimentaçoes.size(); i++){
             Usuarios u = movimentaçoes.get(i).getUsuario();
-            if (usuario == u){
+            String login = u.getLogin();
+            if (login == loginUsuario){
                 m.add(movimentaçoes.get(i));
             }
         }
         return m;
     }
 
-    public List <Movimentação> buscarMovimentação(int quantidade){
+    public List <Movimentação> buscarMovimentaçãoQuantidade(int quantidade){
         List<Movimentação> m = new ArrayList<>();
         for (int i = 0; i < movimentaçoes.size(); i++){
             int q = movimentaçoes.get(i).getQuantidade();
