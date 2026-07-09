@@ -9,6 +9,7 @@ import produto.Produto;
 import usuarios.ControleUsuarios;
 import usuarios.Usuarios;
 import login.Login;
+import mexerEstoque.MexerEstoque;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -16,7 +17,7 @@ public class App {
         // Criat estoque, historico e scanner
 
         List<Produto> produtos = new ArrayList<>();
-        Estoque estoque = new Estoque(produtos);
+        Estoque estoque = new Estoque(produtos, 1);
 
         List<Movimentação> movimentaçoes = new ArrayList<>();
         Historico historico = new Historico(movimentaçoes);
@@ -32,7 +33,7 @@ public class App {
 
         String escolha = scanner.next();
         if (escolha == "mexer estoque"){
-            
+            MexerEstoque.alterarEstoque(scanner, estoque, historico, usuario);
         }
     }
 }
