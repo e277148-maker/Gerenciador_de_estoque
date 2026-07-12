@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import AdicionarUsuario.AdicionarUsuarios;
 import consultarHistorico.ConsultarHistorico;
 import estoque.Estoque;
 import historico.Historico;
@@ -32,12 +33,16 @@ public class App {
         // Login
         Usuarios usuario = Login.ExecutarLogin(scanner, controleUsuarios.getUsuarios());
         // Gerenciamento do estoque
+
         String escolha = scanner.next();
         if (escolha == "mexer estoque"){
             MexerEstoque.alterarEstoque(scanner, estoque, historico, usuario);
         }
         if (escolha == "Ver historico"){
             ConsultarHistorico.consultar(scanner, historico);
+        }
+        if (escolha == "Adicionar usuario"){
+            AdicionarUsuarios.adicionar(scanner, controleUsuarios);
         }
     }
 }
