@@ -35,13 +35,13 @@ public class App {
         // Gerenciamento do estoque
 
         String escolha = scanner.next();
-        if (escolha == "mexer estoque"){
+        if ("mexer estoque".equals(escolha)){
             MexerEstoque.alterarEstoque(scanner, estoque, historico, usuario);
         }
-        if (escolha == "Ver historico"){
+        if ("Ver historico".equals(escolha)){
             ConsultarHistorico.consultar(scanner, historico);
         }
-        if (escolha == "Adicionar usuario"){
+        if ("Adicionar usuario".equals(escolha)){
             AdicionarUsuarios.adicionar(scanner, controleUsuarios);
         }
     }
