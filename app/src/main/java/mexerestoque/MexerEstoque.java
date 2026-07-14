@@ -1,4 +1,4 @@
-package mexerEstoque;
+package mexerestoque;
 
 import java.util.Scanner;
 

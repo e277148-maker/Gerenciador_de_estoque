@@ -1,4 +1,4 @@
-package consultarHistorico;
+package consultarhistorico;
 
 import java.time.LocalDate;
 import java.util.List;

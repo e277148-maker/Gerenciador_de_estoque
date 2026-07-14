@@ -1,4 +1,4 @@
-package AdicionarUsuario;
+package adicionarusuario;
 
 import java.util.List;
 import java.util.Scanner;

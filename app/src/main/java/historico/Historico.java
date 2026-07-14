@@ -2,6 +2,12 @@ package historico;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 
 import produto.Produto;
@@ -72,6 +78,22 @@ public class Historico {
             }
         }
         return m;
+    }
+
+    public void salvarHistorico(){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File("historico.json"), movimentaçoes);
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar o historico: " + e.getMessage());
+        }
+    }
+
+    public void carregarHistorico() throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        movimentaçoes = mapper.readValue(new File("historico.json"), new TypeReference<List<Movimentação>>() {});
     }
 
     public List<Movimentação> getMovimentaçoes() {

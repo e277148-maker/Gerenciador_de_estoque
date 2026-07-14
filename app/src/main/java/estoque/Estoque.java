@@ -1,7 +1,11 @@
 package estoque;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import exeções.ObjetoNaoEncontradoException;
 import produto.Produto;
@@ -44,6 +48,22 @@ public class Estoque {
         if (produto.getQuantidade() < produto.getQuantidadeMinima()){
             System.out.println("Produto abaixo da quantidade minima");
         }
+    }
+
+    public void salvarEstoque(){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File("estoque.json"), produtos);
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar o estoque: " + e.getMessage());
+        }
+    }
+
+    public void carregarEstoque() throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        produtos = mapper.readValue(new File("estoque.json"), new TypeReference<List<Produto>>() {});
     }
 
     public List<Produto> getProdutos() {

@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import AdicionarUsuario.AdicionarUsuarios;
-import consultarHistorico.ConsultarHistorico;
+import adicionarusuario.AdicionarUsuarios;
+import consultarhistorico.ConsultarHistorico;
+import criarrelatorio.CriarRelatorio;
 import estoque.Estoque;
 import historico.Historico;
 import historico.Movimentação;
@@ -11,21 +12,24 @@ import produto.Produto;
 import usuarios.ControleUsuarios;
 import usuarios.Usuarios;
 import login.Login;
-import mexerEstoque.MexerEstoque;
+import mexerestoque.MexerEstoque;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
-        // Criat estoque, historico e scanner
+        // Criar estoque, historico e scanner
 
         List<Produto> produtos = new ArrayList<>();
         Estoque estoque = new Estoque(produtos, 1);
+        estoque.carregarEstoque();
 
         List<Movimentação> movimentaçoes = new ArrayList<>();
         Historico historico = new Historico(movimentaçoes);
+        historico.carregarHistorico();
 
         List<Usuarios> usuarios = new ArrayList<>();
         ControleUsuarios controleUsuarios = new ControleUsuarios(usuarios);
+        controleUsuarios.carregarUsuarios();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -43,6 +47,9 @@ public class App {
         }
         if ("Adicionar usuario".equals(escolha)){
             AdicionarUsuarios.adicionar(scanner, controleUsuarios);
+        }
+        if ("Gerar relatorio".equals(escolha)){
+            CriarRelatorio.gerar(estoque, historico);
         }
     }
 }
