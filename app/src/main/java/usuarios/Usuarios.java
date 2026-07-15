@@ -5,6 +5,9 @@ public class Usuarios {
     private String login;
     private String senha;
 
+    public Usuarios() {
+        
+    }
     
     public Usuarios(String tipo, String nome, String login, String senha) {
         this.tipo = tipo;
@@ -37,6 +40,4 @@ public class Usuarios {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    
 }

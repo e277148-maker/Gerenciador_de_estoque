@@ -53,7 +53,7 @@ public class Estoque {
     public void salvarEstoque(){
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(new File("estoque.json"), produtos);
+            mapper.writeValue(new File("../dados/estoque.json"), produtos);
         } catch (IOException e) {
             System.out.println("Erro ao salvar o estoque: " + e.getMessage());
         }
@@ -63,7 +63,7 @@ public class Estoque {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        produtos = mapper.readValue(new File("estoque.json"), new TypeReference<List<Produto>>() {});
+        produtos = mapper.readValue(new File("../dados/estoque.json"), new TypeReference<List<Produto>>() {});
     }
 
     public List<Produto> getProdutos() {

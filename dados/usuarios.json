@@ -1,0 +1,14 @@
+[
+  {
+    "tipo": "GERENTE",
+    "nome": "joao",
+    "login": "joao.m",
+    "senha": "1234"
+  },
+  {
+    "tipo": "ADMINISTRADOR",
+    "nome": "enzo",
+    "login": "enzo.t",
+    "senha": "5678"
+  }
+]

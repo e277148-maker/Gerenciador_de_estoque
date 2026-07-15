@@ -34,7 +34,7 @@ public class ControleUsuarios {
     public void salvarUsuarios(){
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(new File("usuarios.json"), usuarios);
+            mapper.writeValue(new File("../dados/usuarios.json"), usuarios);
         } catch (IOException e) {
             System.out.println("Erro ao salvar os usuários: " + e.getMessage());
         }
@@ -44,7 +44,7 @@ public class ControleUsuarios {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        usuarios = mapper.readValue(new File("usuarios.json"), new TypeReference<List<Usuarios>>() {});
+        usuarios = mapper.readValue(new File("../dados/usuarios.json"), new TypeReference<List<Usuarios>>() {});
     }
 
     public List<Usuarios> getUsuarios() {

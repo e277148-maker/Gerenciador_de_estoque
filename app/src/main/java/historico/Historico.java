@@ -83,7 +83,7 @@ public class Historico {
     public void salvarHistorico(){
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(new File("historico.json"), movimentaçoes);
+            mapper.writeValue(new File("../dados/historico.json"), movimentaçoes);
         } catch (IOException e) {
             System.out.println("Erro ao salvar o historico: " + e.getMessage());
         }
@@ -93,7 +93,7 @@ public class Historico {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        movimentaçoes = mapper.readValue(new File("historico.json"), new TypeReference<List<Movimentação>>() {});
+        movimentaçoes = mapper.readValue(new File("../dados/historico.json"), new TypeReference<List<Movimentação>>() {});
     }
 
     public List<Movimentação> getMovimentaçoes() {
