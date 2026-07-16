@@ -50,7 +50,7 @@ public class Historico {
         List<Movimentação> m = new ArrayList<>();
         for (int i = 0; i < movimentaçoes.size(); i++){
             LocalDate d = movimentaçoes.get(i).getData();
-            if (data == d){
+            if (data.equals(d)){
                 m.add(movimentaçoes.get(i));
             }
         }
@@ -62,7 +62,7 @@ public class Historico {
         for (int i = 0; i < movimentaçoes.size(); i++){
             Usuarios u = movimentaçoes.get(i).getUsuario();
             String login = u.getLogin();
-            if (login == loginUsuario){
+            if (login.equals(loginUsuario)){
                 m.add(movimentaçoes.get(i));
             }
         }

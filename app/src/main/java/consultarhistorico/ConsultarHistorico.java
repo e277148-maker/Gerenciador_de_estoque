@@ -12,13 +12,13 @@ public class ConsultarHistorico {
         boolean continuar = true;
         while (continuar == true){
             String escolha = scanner.next();
-            if (escolha == "Buscar por produto"){
+            if (escolha.equals("Buscar por produto")){
                 int ID = scanner.nextInt();
                 List<Movimentação> m = historico.buscarMovimentaçãoProduto(ID);   // Tentar fazer direto por ID
                 System.out.println(m);
             }
 
-            if (escolha == "Buscar por data"){
+            if (escolha.equals("Buscar por data")){
                 try {
                     LocalDate data = LocalDate.parse(scanner.nextLine());
                     List<Movimentação> m =historico.buscarMovimentaçãoData(data);
@@ -29,19 +29,19 @@ public class ConsultarHistorico {
                 }
 
             }
-            if(escolha == "Buscar por quantidade"){
+            if(escolha.equals("Buscar por quantidade")){
                 int quantidade = scanner.nextInt();
                 List<Movimentação> m = historico.buscarMovimentaçãoQuantidade(quantidade);
                 System.out.println(m);
 
             }
-            if (escolha == "Buscar por usuario"){
+            if (escolha.equals("Buscar por usuario")){
                 String login = scanner.next();
                 List<Movimentação> m = historico.buscarMovimentaçãoUsuario(login);
                 System.out.println(m);
             }
 
-            if (escolha == "sair"){
+            if (escolha.equals("sair")){
                 continuar = false;
             }
 

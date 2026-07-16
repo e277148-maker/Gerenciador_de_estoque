@@ -23,7 +23,7 @@ public class ControleUsuarios {
     public Usuarios buscarUsuario(String login) throws ObjetoNaoEncontradoException{
         for (int i = 0; i < usuarios.size(); i++){
             Usuarios usuario = usuarios.get(i);
-            if (usuario.getLogin() == login){
+            if (usuario.getLogin().equals(login)){
                 return usuario;
             }
         }

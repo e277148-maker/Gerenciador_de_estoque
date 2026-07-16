@@ -15,7 +15,7 @@ public class MexerEstoque {
         boolean continuar = true;
         while ( continuar == true) {
             String escolha = scanner.next();
-            if(escolha == "Entrada produto"){
+            if(escolha.equals("Entrada produto")){
                 int ID = scanner.nextInt();
                 int quantidade = scanner.nextInt();
                 try {

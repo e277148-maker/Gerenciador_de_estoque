@@ -32,7 +32,7 @@ public class AdicionarUsuarios {
         int usuariosRepetidos = 0;
         for (int i = 0; i < usuarios.size(); i++){
             Usuarios u = usuarios.get(i);
-            if(login == u.getLogin()){
+            if(login.equals(u.getLogin())){
                 i++;
             }
         }
