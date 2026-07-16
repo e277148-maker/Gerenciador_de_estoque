@@ -34,7 +34,7 @@ public class App {
         Usuarios usuario = Login.ExecutarLogin(scanner, controleUsuarios.getUsuarios());
         // Gerenciamento do estoque
 
-        String escolha = scanner.next();
+        String escolha = scanner.nextLine();
         if ("mexer estoque".equals(escolha)){
             MexerEstoque.alterarEstoque(scanner, estoque, historico, usuario);
         }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Login {
 
-    private static Usuarios encontrarUsuario(String login, String senha, List<Usuarios> usuarios){
+    public static Usuarios autenticar(String login, String senha, List<Usuarios> usuarios){
         for(int i = 0; i < usuarios.size(); i++){
             Usuarios u = usuarios.get(i);
             if(u.getLogin().equals(login) && u.getSenha().equals(senha)){
@@ -20,14 +20,14 @@ public class Login {
     public static Usuarios ExecutarLogin(Scanner scanner, List<Usuarios> usuarios){
         String login = scanner.next();
         String senha = scanner.next();
-        Usuarios usuario = encontrarUsuario(login, senha, usuarios);
+        Usuarios usuario = autenticar(login, senha, usuarios);
         if (usuario == null){
             while (usuario == null) {
                 System.err.println("Usuario ou senha incorretos");
                 System.err.println("Tente novamente");
                 login = scanner.next();
                 senha = scanner.next();
-                usuario = encontrarUsuario(login, senha, usuarios);
+                usuario = autenticar(login, senha, usuarios);
             }
         }
         return usuario;
