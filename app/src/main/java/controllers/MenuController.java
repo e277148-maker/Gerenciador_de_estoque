@@ -95,8 +95,18 @@ public class MenuController {
     }
 
     @FXML
-    private void adicionarUsuario(){
+    private void adicionarUsuario() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/adicionarUsuario.fxml"));
 
+        Scene scene = new Scene(loader.load());
+
+        AdicionarUsuarioController controller = loader.getController();
+
+        controller.inicializar(estoque, historico, controleUsuarios, usuario);
+
+        Stage stage = (Stage) lblUsuario.getScene().getWindow();
+
+        stage.setScene(scene);
     }
 
     @FXML

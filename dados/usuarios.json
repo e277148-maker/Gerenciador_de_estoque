@@ -1,8 +1,1 @@
-[
-    {
-        "tipo": "Administrador",
-        "nome": "Enzo",
-        "login": "admin",
-        "senha": "1234"
-    }
-]
+[{"tipo":"Administrador","nome":"Enzo","login":"admin","senha":"1234"},{"tipo":"Gerente","nome":"João","login":"jj","senha":"5678"}]
