@@ -1,32 +1,41 @@
 package controllers;
 
+import java.io.IOException;
+
+import comandos.CriarProduto;
+import estoque.Estoque;
+import historico.Historico;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import produto.Produto;
-
-import java.io.IOException;
-
-import comandos.SaidaProduto;
-import estoque.Estoque;
-import exeções.ObjetoNaoEncontradoException;
-import historico.Historico;
 import usuarios.ControleUsuarios;
 import usuarios.Usuarios;
 
-public class SaidaController {
-
+public class AdicionarProdutoController {
+    
     @FXML
-    private TextField txtID;
+    private TextField txtNome;
 
     @FXML
     private TextField txtQuantidade;
 
     @FXML
+    private TextField txtQuantidadeMin;
+
+    @FXML
+    private Button btnAdicionar ;
+
+    @FXML
     private Label lblMensagem;
+
+    @FXML
+    private Button btnVoltar;
+
 
     private Estoque estoque;
     private Historico historico;
@@ -41,27 +50,27 @@ public class SaidaController {
         this.usuario = usuario;
     }
 
+
     @FXML
-    private void confirmar() {
+    private void adicionar() {
 
+        if (txtNome.getText().isBlank() || txtQuantidade.getText().isBlank() || txtQuantidadeMin.getText().isBlank()) {
+            lblMensagem.setText("Preencha todos os campos.");
+            return;
+        }        
+        
         try {
-            int id = Integer.parseInt(txtID.getText());
-            int quantidade = Integer.parseInt(txtQuantidade.getText());
+            String nome = txtNome.getText();
+            int Quantidade = Integer.parseInt(txtQuantidade.getText());
+            int QuantidadeMin = Integer.parseInt(txtQuantidadeMin.getText());
 
-            try {
-                Produto produto = estoque.buscarProduto(id);
-                try {
-                    SaidaProduto comando = new SaidaProduto(estoque, quantidade, produto, usuario, historico);
-                    comando.executar();
-                    lblMensagem.setText("Saída realizada com sucesso.");
-                } catch (IllegalArgumentException e) {
-                    lblMensagem.setText(e.getMessage());
-                }
-            } catch (ObjetoNaoEncontradoException e) {
-                lblMensagem.setText(e.getMessage());
-            }
+            Produto produto = new Produto(nome, Quantidade, 0, QuantidadeMin);
+            CriarProduto comando = new CriarProduto(estoque, produto, usuario, historico);
+            comando.executar();
+            lblMensagem.setText("Produto adicionado com sucesso");
+
         } catch (NumberFormatException e) {
-            lblMensagem.setText("Digite apenas números inteiros");
+            lblMensagem.setText("Quantidade inválida.");
         }
     }
 
@@ -76,7 +85,7 @@ public class SaidaController {
 
         controller.inicializar(estoque, historico, controleUsuarios, usuario);
 
-        Stage stage = (Stage) txtID.getScene().getWindow();
+        Stage stage = (Stage) txtNome.getScene().getWindow();
 
         stage.setScene(scene);
     }

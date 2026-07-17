@@ -14,6 +14,7 @@
             <Label fx:id="lblUsuario" text="Bem vindo " />
             <Button fx:id="btnEntrada" mnemonicParsing="false" onAction="#abrirEntrada" text="Entrada de Produtos " />
             <Button fx:id="btnSaida" mnemonicParsing="false" onAction="#abrirSaida" text="Saída de Produtos" />
+            <Button fx:id="btnAdicionarProduto" mnemonicParsing="false" onAction="#adicionarProduto" text="Adicionar Produto" />
             <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#abrirConsulta" text="Consultar Estoque" />
             <Button fx:id="btnHistorico" mnemonicParsing="false" onAction="#abrirHistorico" text="Histórico" />
             <Button fx:id="btnAdicionarUsuario" mnemonicParsing="false" onAction="#adicionarUsuario" text="Adicionar Usuário" />

@@ -110,6 +110,21 @@ public class MenuController {
     }
 
     @FXML
+    private void adicionarProduto() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/adicionarProduto.fxml"));
+
+        Scene scene = new Scene(loader.load());
+
+        AdicionarProdutoController controller = loader.getController();
+
+        controller.inicializar(estoque, historico, controleUsuarios, usuario);
+
+        Stage stage = (Stage) lblUsuario.getScene().getWindow();
+
+        stage.setScene(scene);
+    }
+
+    @FXML
     private void gerarRelatorio(){
 
     }

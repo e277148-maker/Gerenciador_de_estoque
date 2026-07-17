@@ -44,24 +44,27 @@ public class EntradaController {
     @FXML
     private void confirmar() {
 
-        int id = Integer.parseInt(txtID.getText());
-        int quantidade = Integer.parseInt(txtQuantidade.getText());
-
         try {
-            Produto produto = estoque.buscarProduto(id);
+            int id = Integer.parseInt(txtID.getText());
+            int quantidade = Integer.parseInt(txtQuantidade.getText());
+            try {
+                Produto produto = estoque.buscarProduto(id);
 
-            EntradaProduto comando = new EntradaProduto(estoque, quantidade, produto, usuario, historico);
+                EntradaProduto comando = new EntradaProduto(estoque, quantidade, produto, usuario, historico);
 
-            comando.executar();
+                comando.executar();
 
-            lblMensagem.setText("Entrada realizada com sucesso.");
+                lblMensagem.setText("Entrada realizada com sucesso.");
 
-            txtID.clear();
-            txtQuantidade.clear();
-            txtID.requestFocus();
+                txtID.clear();
+                txtQuantidade.clear();
+                txtID.requestFocus();
 
-        } catch (ObjetoNaoEncontradoException e) {
-            lblMensagem.setText(e.getMessage());
+            } catch (ObjetoNaoEncontradoException e) {
+                lblMensagem.setText(e.getMessage());
+            }
+        } catch (NumberFormatException e) {
+            lblMensagem.setText("Digite apenas números inteiros");
         }
     }
 
