@@ -24,5 +24,7 @@ public class CriarProduto implements Comandos {
         Movimentação produtoNovo = new Movimentação("Criação de produto", produto.getQuantidade(), produto, usuario);
         historico.adicionarMovimentação(produtoNovo);
         estoque.criarProduto(produto);
+        historico.salvarHistorico();;
+        estoque.salvarEstoque();
     }
 }

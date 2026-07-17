@@ -1,0 +1,18 @@
+RELATORIO DE ESTOQUE
+---------------------
+INFORMAÇÕES GERAIS
+Quantidade de produtos cadastrados: 6
+Quantidade total de itens em estoque: 150
+Quantidade de itens abaixo da quntidade minima: 10
+Total de movimentações realizadas: 6
+
+SITUAÇÃO DO ESTOQUE
+Produto: Arroz  Quantidade: 60  ID: 1
+Produto: Feijao  Quantidade: 30  ID: 2
+Produto: Macarrao  Quantidade: 18  ID: 3
+Produto: Acucar  Quantidade: 12  ID: 4
+Produto: mel  Quantidade: 20  ID: 5
+Produto: Pão  Quantidade: 10  ID: 6
+Total: 150 produtos
+PRODUTOS ABAIXO DA QUANTIDADE MINIMA
+Produto: Pão  Quantidade: 10  Quantidade minima: 20

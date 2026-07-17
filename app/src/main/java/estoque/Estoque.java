@@ -1,19 +1,23 @@
 package estoque;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import exeções.ObjetoNaoEncontradoException;
 import produto.Produto;
 
 public class Estoque {
     private List<Produto> produtos;
-    private int geradorID;
+    private int proximoID;
 
 
     public Estoque(List<Produto> produtos, int geradorID) {
         this.produtos = produtos;
-        this.geradorID = geradorID;
+        this.proximoID = geradorID;
     }
 
     public void entradaProduto(Produto produto, int quantidade){
@@ -25,8 +29,8 @@ public class Estoque {
     }
 
     public void criarProduto(Produto produto){
-        geradorID++;
-        produto.setID(geradorID);
+        produto.setID(proximoID);
+        proximoID++;
         produtos.add(produto);
     }
     
@@ -46,6 +50,29 @@ public class Estoque {
         }
     }
 
+    public void salvarEstoque(){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File("../dados/estoque.json"), produtos);
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar o estoque: " + e.getMessage());
+        }
+    }
+
+    public void carregarEstoque() throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        produtos = mapper.readValue(new File("../dados/estoque.json"), new TypeReference<List<Produto>>() {});
+
+        proximoID = 1;
+
+        for (Produto p : produtos) {
+            if (p.getID() >= proximoID){
+                proximoID = p.getID() + 1;
+            }
+        }
+    }
+
     public List<Produto> getProdutos() {
         return produtos;
     }
@@ -54,11 +81,11 @@ public class Estoque {
         this.produtos = produtos;
     }
 
-    public int getGeradorID() {
-        return geradorID;
+    public int getproximoID() {
+        return proximoID;
     }
 
-    public void setGeradorID(int geradorID) {
-        this.geradorID = geradorID;
+    public void setproximoID(int proximoID) {
+        this.proximoID = proximoID;
     }
 }
