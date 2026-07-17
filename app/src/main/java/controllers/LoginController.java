@@ -16,8 +16,6 @@ import usuarios.Usuarios;
 
 public class LoginController {
 
-    private ControleUsuarios controleUsuarios;
-
     @FXML
     private TextField usuarioField;
 
@@ -26,6 +24,12 @@ public class LoginController {
 
     @FXML
     private Button entrarButton;
+
+    private ControleUsuarios controleUsuarios;
+
+    public void inicializar(ControleUsuarios controleUsuarios) {
+        this.controleUsuarios = controleUsuarios;
+    }
 
     @FXML
     private void entrar() throws IOException{

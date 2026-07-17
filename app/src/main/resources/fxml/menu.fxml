@@ -20,6 +20,7 @@
             <Button fx:id="btnAdicionarUsuario" mnemonicParsing="false" onAction="#adicionarUsuario" text="Adicionar Usuário" />
             <Button fx:id="btnRelatorio" mnemonicParsing="false" onAction="#gerarRelatorio" text="Gerar Relatorio" />
             <Button fx:id="btnSair" mnemonicParsing="false" onAction="#sair" text="Sair" />
+            <Label fx:id="lblMensagem" />
          </children>
          <BorderPane.margin>
             <Insets />

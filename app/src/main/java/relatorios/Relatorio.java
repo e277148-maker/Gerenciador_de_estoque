@@ -1,5 +1,6 @@
 package relatorios;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,9 +12,19 @@ import produto.Produto;
 
 public class Relatorio {
     public static void gerarRelatorioEstoque(Estoque estoque, String nomeArquivo, Historico historico){
+        System.out.println(System.getProperty("user.dir"));
         try {
-            PrintWriter escritor = new PrintWriter(new FileWriter(nomeArquivo + ".txt"));
 
+            File arquivo = new File("../relatorios/" + nomeArquivo + ".txt");
+            
+            int contador = 1;
+
+            while (arquivo.exists()) {
+                arquivo = new File("../relatorios/" + nomeArquivo + "(" + contador + ").txt");
+                contador++;
+            }
+
+            PrintWriter escritor = new PrintWriter(new FileWriter(arquivo));
 
             int produtosCadastrados = estoque.getProdutos().size();
             int produto = calcularTotalDeProdutos(estoque);
@@ -40,9 +51,9 @@ public class Relatorio {
             System.out.println("Relatorio " + nomeArquivo + "gerado com sucesso");
         } 
         catch (IOException e) {
-            System.out.println("Erro ao gerar o relatorio");
-        }
-    } 
+            e.printStackTrace();
+        }       
+    }
 
     private static void imprimirProdutos(Estoque estoque, PrintWriter escritor){
         for (int i = 0; i < estoque.getProdutos().size(); i++){
