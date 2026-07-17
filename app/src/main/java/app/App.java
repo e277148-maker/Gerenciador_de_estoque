@@ -1,9 +1,17 @@
+
+package app;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import adicionarusuario.AdicionarUsuarios;
-import consultarhistorico.ConsultarHistorico;
+import controllers.LoginController;
 import estoque.Estoque;
 import historico.Historico;
 import historico.Movimentação;
@@ -11,7 +19,7 @@ import produto.Produto;
 import usuarios.ControleUsuarios;
 import usuarios.Usuarios;
 import login.Login;
-import mexerestoque.MexerEstoque;
+
 
 public class App {
 
@@ -28,7 +36,24 @@ public class App {
         List<Usuarios> usuarios = new ArrayList<>();
         ControleUsuarios controleUsuarios = new ControleUsuarios(usuarios);
 
+
         Scanner scanner = new Scanner(System.in);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+
+        Scene scene = new Scene(loader.load());
+
+        // Recupera o controller criado pelo FXMLLoader
+        LoginController controller = loader.getController();
+
+        // Passa o ControleUsuarios para ele
+        controller.setControleUsuarios(controleUsuarios);
+
+        stage.setTitle("Gerenciador de Estoque");
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
         // Login
         Usuarios usuario = Login.ExecutarLogin(scanner, controleUsuarios.getUsuarios());

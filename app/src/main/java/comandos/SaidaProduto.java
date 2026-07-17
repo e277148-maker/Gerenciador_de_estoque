@@ -23,13 +23,15 @@ public class SaidaProduto implements Comandos {
 
     @Override
     public void executar(){
-        if(quantidade < produto.getQuantidade()){
+        if(quantidade <= produto.getQuantidade()){
             Movimentação entrada_de_produto = new Movimentação("Saída de produto", quantidade, produto, usuario);
             historico.adicionarMovimentação(entrada_de_produto);
-            estoque.saidaProduto(produto, quantidade);    
+            estoque.saidaProduto(produto, quantidade);
+            estoque.salvarEstoque();
+            historico.salvarHistorico();  
         }
         else{
-            System.out.println("Produto em quantidade insuficiente");
+            throw new IllegalArgumentException("Quantidade insuficiente em estoque.");
         }
     }
 }

@@ -12,12 +12,12 @@ import produto.Produto;
 
 public class Estoque {
     private List<Produto> produtos;
-    private int geradorID;
+    private int proximoID;
 
 
     public Estoque(List<Produto> produtos, int geradorID) {
         this.produtos = produtos;
-        this.geradorID = geradorID;
+        this.proximoID = geradorID;
     }
 
     public void entradaProduto(Produto produto, int quantidade){
@@ -29,8 +29,8 @@ public class Estoque {
     }
 
     public void criarProduto(Produto produto){
-        geradorID++;
-        produto.setID(geradorID);
+        produto.setID(proximoID);
+        proximoID++;
         produtos.add(produto);
     }
     
@@ -62,8 +62,15 @@ public class Estoque {
     public void carregarEstoque() throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
-
         produtos = mapper.readValue(new File("../dados/estoque.json"), new TypeReference<List<Produto>>() {});
+
+        proximoID = 1;
+
+        for (Produto p : produtos) {
+            if (p.getID() >= proximoID){
+                proximoID = p.getID() + 1;
+            }
+        }
     }
 
     public List<Produto> getProdutos() {
@@ -74,11 +81,11 @@ public class Estoque {
         this.produtos = produtos;
     }
 
-    public int getGeradorID() {
-        return geradorID;
+    public int getproximoID() {
+        return proximoID;
     }
 
-    public void setGeradorID(int geradorID) {
-        this.geradorID = geradorID;
+    public void setproximoID(int proximoID) {
+        this.proximoID = proximoID;
     }
 }
