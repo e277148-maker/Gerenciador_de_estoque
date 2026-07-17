@@ -80,8 +80,18 @@ public class MenuController {
     }
 
     @FXML
-    private void abrirHistorico(){
+    private void abrirHistorico() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/consultarHistorico.fxml"));
 
+        Scene scene = new Scene(loader.load());
+
+        ConsultaHistoricoController controller = loader.getController();
+
+        controller.inicializar(estoque, historico, controleUsuarios, usuario);
+
+        Stage stage = (Stage) lblUsuario.getScene().getWindow();
+
+        stage.setScene(scene);
     }
 
     @FXML

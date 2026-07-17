@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConsultaController">
    <center>
       <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
+            <Label text="Consulta do Estoque" />
             <TextField fx:id="txtID" promptText="ID do Produto" />
             <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" text="Consultar" />
             <Label fx:id="lblProduto" text="Produto:" />
