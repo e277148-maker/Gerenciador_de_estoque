@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -15,6 +16,9 @@ import usuarios.ControleUsuarios;
 import usuarios.Usuarios;
 
 public class LoginController {
+
+    @FXML
+    private Label lblMensagem;
 
     @FXML
     private TextField usuarioField;
@@ -34,6 +38,11 @@ public class LoginController {
     @FXML
     private void entrar() throws IOException{
 
+        if(usuarioField.getText().isBlank() || senhaField.getText().isBlank()){
+            lblMensagem.setText("Preencha todos os campos");
+            return;
+        }
+
         String login = usuarioField.getText();
         String senha = senhaField.getText();
 
@@ -51,6 +60,9 @@ public class LoginController {
             Stage stage = (Stage) entrarButton.getScene().getWindow();
 
             stage.setScene(scene);
+        }
+        if (usuario == null){
+            lblMensagem.setText("Login e senha incompativeis");
         }
     }
 
