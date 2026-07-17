@@ -38,11 +38,11 @@ public class Relatorio {
             escritor.println("Quantidade total de itens em estoque: " + produto);
             escritor.println("Quantidade de itens abaixo da quntidade minima: " + produtoAbaixoQuantidadeMinima);
             escritor.println("Total de movimentações realizadas: " + movimentações);
-            escritor.println();
+            escritor.println(" ");
             escritor.println("SITUAÇÃO DO ESTOQUE");
             imprimirProdutos(estoque, escritor);
-            escritor.print("Total: " + produto + " produtos");
-            escritor.println();
+            escritor.println("Total: " + produto + " produtos");
+            escritor.println(" ");
             if (produtoAbaixoQuantidadeMinima > 0){
                 escritor.println("PRODUTOS ABAIXO DA QUANTIDADE MINIMA");
                 imprimirProdutosAbaixoQuantidadeMinima(estoque, escritor);
@@ -66,7 +66,7 @@ public class Relatorio {
         for (int i = 0; i < estoque.getProdutos().size(); i++){
             Produto p = estoque.getProdutos().get(i);
             if (p.getQuantidade() < p.getQuantidadeMinima()){
-                escritor.print("Produto: " + p.getNome() + "  Quantidade: " + p.getQuantidade() + "Quantidade minima: " + p.getQuantidadeMinima() +  "\n");
+                escritor.print("Produto: " + p.getNome() + "  Quantidade: " + p.getQuantidade() + "  Quantidade minima: " + p.getQuantidadeMinima() +  "\n");
             }
             
         }

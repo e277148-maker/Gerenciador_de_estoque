@@ -10,7 +10,7 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblTitulo" text="Gerenciador de Estoque" />
+            <Label fx:id="lblTitulo" text="GERENCIADOR DE ESTOQUE" />
             <Label fx:id="lblUsuario" text="Bem vindo " />
             <Button fx:id="btnEntrada" mnemonicParsing="false" onAction="#abrirEntrada" text="Entrada de Produtos " />
             <Button fx:id="btnSaida" mnemonicParsing="false" onAction="#abrirSaida" text="Saída de Produtos" />

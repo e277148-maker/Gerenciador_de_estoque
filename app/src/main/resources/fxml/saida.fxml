@@ -11,12 +11,12 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Saida de Produtos" />
+            <Label text="SAÍDA PRODUTOS" />
             <TextField fx:id="txtID" promptText="ID do produto" />
             <TextField fx:id="txtQuantidade" promptText="Quantidade" />
             <Button fx:id="btnConfirmar" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
             <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Label fx:id="lblMensagem" text="mensagem" />
+            <Label fx:id="lblMensagem" />
          </children>
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />

@@ -11,7 +11,7 @@
    <center>
       <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Consulta do Estoque" />
+            <Label text="CONSULTA DO ESTOQUE" />
             <TextField fx:id="txtID" promptText="ID do Produto" />
             <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" text="Consultar" />
             <Label fx:id="lblProduto" text="Produto:" />
