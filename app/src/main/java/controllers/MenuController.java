@@ -50,8 +50,18 @@ public class MenuController {
     }
 
     @FXML
-    private void abrirSaida(){
+    private void abrirSaida() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/saida.fxml"));
 
+        Scene scene = new Scene(loader.load());
+
+        SaidaController controller = loader.getController();
+
+        controller.inicializar(estoque, historico, controleUsuarios, usuario);
+
+        Stage stage = (Stage) lblUsuario.getScene().getWindow();
+
+        stage.setScene(scene);
     }
 
     @FXML
