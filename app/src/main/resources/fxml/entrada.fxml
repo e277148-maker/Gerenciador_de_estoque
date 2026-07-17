@@ -17,7 +17,7 @@
             <TextField fx:id="txtQuantidade" promptText="Quantidade" />
             <Button fx:id="btnConfirmar" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
             <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Label fx:id="lblMensagem" text="mensagem" />
+            <Label fx:id="lblMensagem" />
          </children>
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />

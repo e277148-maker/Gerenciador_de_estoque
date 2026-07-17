@@ -71,8 +71,7 @@ private void voltar() throws IOException {
 
     MenuController controller = loader.getController();
 
-    controller.inicializar(estoque, historico, controleUsuarios, usuario
-    );
+    controller.inicializar(estoque, historico, controleUsuarios, usuario);
 
     Stage stage = (Stage) txtID.getScene().getWindow();
 

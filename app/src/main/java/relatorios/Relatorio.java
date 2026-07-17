@@ -47,7 +47,7 @@ public class Relatorio {
     private static void imprimirProdutos(Estoque estoque, PrintWriter escritor){
         for (int i = 0; i < estoque.getProdutos().size(); i++){
             Produto p = estoque.getProdutos().get(i);
-            escritor.print("Produto: " + p.getNome() + "  Quantidade: " + p.getQuantidade() + "\n");
+            escritor.print("Produto: " + p.getNome() + "  Quantidade: " + p.getQuantidade() + "  ID: " + p.getID() + "\n");
         }
     }
 

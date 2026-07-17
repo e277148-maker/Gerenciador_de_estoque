@@ -1,32 +1,43 @@
 package controllers;
 
+import java.io.IOException;
+
+import estoque.Estoque;
+import exeções.ObjetoNaoEncontradoException;
+import historico.Historico;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import produto.Produto;
-
-import java.io.IOException;
-
-import comandos.EntradaProduto;
-import estoque.Estoque;
-import exeções.ObjetoNaoEncontradoException;
-import historico.Historico;
 import usuarios.ControleUsuarios;
 import usuarios.Usuarios;
 
-public class EntradaController {
-
+public class ConsultaController {
+    
     @FXML
     private TextField txtID;
 
     @FXML
-    private TextField txtQuantidade;
+    private Button btnConsultar;
+
+    @FXML
+    private Label lblProduto;
+
+    @FXML
+    private Label lblQuantidade;
+
+    @FXML
+    private Label lblQuantidadeMin;
 
     @FXML
     private Label lblMensagem;
+
+    @FXML
+    private Button lblVoltar;
 
     private Estoque estoque;
     private Historico historico;
@@ -40,28 +51,26 @@ public class EntradaController {
         this.controleUsuarios = controleUsuarios;
         this.usuario = usuario;
     }
-
+    
     @FXML
-    private void confirmar() {
+    private void consultar() {
 
         int id = Integer.parseInt(txtID.getText());
-        int quantidade = Integer.parseInt(txtQuantidade.getText());
 
         try {
+
             Produto produto = estoque.buscarProduto(id);
 
-            EntradaProduto comando = new EntradaProduto(estoque, quantidade, produto, usuario, historico);
+            lblProduto.setText("Produto: " + produto.getNome());
+            lblQuantidade.setText("Quantidade: " + produto.getQuantidade());
+            lblQuantidadeMin.setText("Quantidade mínima: " + produto.getQuantidadeMinima());
 
-            comando.executar();
-
-            lblMensagem.setText("Entrada realizada com sucesso.");
-
-            txtID.clear();
-            txtQuantidade.clear();
-            txtID.requestFocus();
+            lblMensagem.setText("");
 
         } catch (ObjetoNaoEncontradoException e) {
+
             lblMensagem.setText(e.getMessage());
+
         }
     }
 
@@ -80,4 +89,5 @@ public class EntradaController {
 
         stage.setScene(scene);
     }
+
 }

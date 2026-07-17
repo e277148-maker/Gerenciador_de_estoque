@@ -65,8 +65,18 @@ public class MenuController {
     }
 
     @FXML
-    private void abrirConsulta(){
+    private void abrirConsulta() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/consultarEstoque.fxml"));
 
+        Scene scene = new Scene(loader.load());
+
+        ConsultaController controller = loader.getController();
+
+        controller.inicializar(estoque, historico, controleUsuarios, usuario);
+
+        Stage stage = (Stage) lblUsuario.getScene().getWindow();
+
+        stage.setScene(scene);
     }
 
     @FXML
