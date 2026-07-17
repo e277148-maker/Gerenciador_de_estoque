@@ -17,7 +17,7 @@ public class AdicionarUsuarios {
         System.out.println("tipo: ");
         String tipo = scanner.next();
         List<Usuarios> usuarios = controleUsuarios.getUsuarios();
-        boolean loginUnico = checarLoginRepetido(nome, usuarios);
+        boolean loginUnico = checarLoginRepetido(login, usuarios);
         if (loginUnico == true){
             Usuarios novoUsuario = new Usuarios(tipo, nome, login, senha);
             controleUsuarios.adicionarUsuario(novoUsuario);
@@ -29,18 +29,13 @@ public class AdicionarUsuarios {
     }
 
     private static boolean checarLoginRepetido(String login, List<Usuarios> usuarios){
-        int usuariosRepetidos = 0;
+
         for (int i = 0; i < usuarios.size(); i++){
             Usuarios u = usuarios.get(i);
             if(login.equals(u.getLogin())){
-                i++;
+                return false;
             }
         }
-        if (usuariosRepetidos == 0){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return true;
     }
 }

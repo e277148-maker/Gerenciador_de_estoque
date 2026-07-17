@@ -54,8 +54,8 @@ public class MexerEstoque {
                 criarProduto.executar();
                 continuar = false;
             }
-            if (escolha  == "terminar"){
-                continuar = true;
+            if (escolha.equals("terminar")){
+                continuar = false;
             }
             else{
                 System.out.println("Escolha invalida");
