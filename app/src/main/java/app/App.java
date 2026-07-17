@@ -1,4 +1,3 @@
-
 package app;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,10 +5,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import controllers.LoginController;
 import estoque.Estoque;
@@ -18,26 +15,30 @@ import historico.Movimentação;
 import produto.Produto;
 import usuarios.ControleUsuarios;
 import usuarios.Usuarios;
-import login.Login;
 
+public class App  extends Application{
 
-public class App {
+    private static Estoque estoque;
+    private static Historico historico;
+    private static ControleUsuarios controleUsuarios;
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-    public static void main(String[] args) throws Exception {
-
-        // Criar estoque, historico e scanner
+    @Override
+    public void start(Stage stage) throws IOException {
 
         List<Produto> produtos = new ArrayList<>();
-        Estoque estoque = new Estoque(produtos, 1);
+        estoque = new Estoque(produtos, 1);
+        estoque.carregarEstoque();
 
-        List<Movimentação> movimentaçoes = new ArrayList<>();
-        Historico historico = new Historico(movimentaçoes);
+        List<Movimentação> movimentacoes = new ArrayList<>();
+        historico = new Historico(movimentacoes);
+        historico.carregarHistorico();
 
         List<Usuarios> usuarios = new ArrayList<>();
-        ControleUsuarios controleUsuarios = new ControleUsuarios(usuarios);
-
-
-        Scanner scanner = new Scanner(System.in);
+        controleUsuarios = new ControleUsuarios(usuarios);
+        controleUsuarios.carregarUsuarios();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
 
@@ -54,20 +55,15 @@ public class App {
         stage.show();
     }
 
+    public static Estoque getEstoque() {
+        return estoque;
+    }
 
-        // Login
-        Usuarios usuario = Login.ExecutarLogin(scanner, controleUsuarios.getUsuarios());
-        // Gerenciamento do estoque
+    public static Historico getHistorico() {
+        return historico;
+    }
 
-        String escolha = scanner.nextLine();
-        if ("mexer estoque".equals(escolha)){
-            MexerEstoque.alterarEstoque(scanner, estoque, historico, usuario);
-        }
-        if ("Ver historico".equals(escolha)){
-            ConsultarHistorico.consultar(scanner, historico);
-        }
-        if ("Adicionar usuario".equals(escolha)){
-            AdicionarUsuarios.adicionar(scanner, controleUsuarios);
-        }
+    public static ControleUsuarios getControleUsuarios() {
+        return controleUsuarios;
     }
 }
