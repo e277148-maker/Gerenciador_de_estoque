@@ -99,6 +99,24 @@ id 'org.openjfx.javafxplugin'
 
 ---
 
-# Mudanças em relação ao diagrama UML entregado na tarefa 3
+# Alterações em relação ao projeto inicial
 
-As principais mudanças foram a implementação da interface grafica, que não foi considerada no diagrama, a não utilização das classes Administrador, Gerente e a não utilização do Factory metod para criar novos usuarios.
+Durante o desenvolvimento, algumas decisões de projeto foram revistas em
+relação ao diagrama UML originalmente proposto.
+
+As principais alterações foram:
+
+-   Implementação de uma interface gráfica utilizando JavaFX,
+    funcionalidade que não estava prevista no diagrama inicial.
+-   Não utilização das classes `Administrador` e `Gerente`. Em vez
+    disso, foi adotada uma única classe `Usuarios`, contendo os
+    atributos `nome`, `login`, `senha` e `tipo`, simplificando a
+    modelagem sem perda de funcionalidade.
+-   Não utilização do padrão Factory Method para criação de usuários. 
+    utilização de uma unica classe `Usuarios` tornou desnecessária o 
+    uso do Factory Method, uma vez que a criação de novos usuarios foi 
+    simplificada. 
+-   Implementação da funcionalidade de cadastro de novos produtos,
+    recurso que não fazia parte da proposta original, mas que foi
+    incorporado para tornar o sistema mais completo e facilitar o
+    gerenciamento do estoque.
