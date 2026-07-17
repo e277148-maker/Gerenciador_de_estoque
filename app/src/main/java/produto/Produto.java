@@ -6,12 +6,16 @@ public class Produto {
     private int ID;
     private int quantidadeMinima;
 
+    public Produto() {
+    }
+
     public Produto(String nome, int quantidade, int iD, int quantidadeMinima) {
         this.nome = nome;
         this.quantidade = quantidade;
         this.ID = iD;
         this.quantidadeMinima = quantidadeMinima;
     }
+    
     public String getNome() {
         return nome;
     }

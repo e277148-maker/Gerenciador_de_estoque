@@ -21,6 +21,9 @@ public class Movimentação {
         this.usuario = usuario;
     }
 
+    public Movimentação() {
+    }
+
 
     public String getTipo() {
         return tipo;

@@ -1,3 +1,4 @@
+package app;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import controllers.LoginController;
 import estoque.Estoque;
 import historico.Historico;
 import historico.Movimentação;
@@ -39,7 +41,15 @@ public class App  extends Application{
         controleUsuarios.carregarUsuarios();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+
         Scene scene = new Scene(loader.load());
+
+        // Recupera o controller criado pelo FXMLLoader
+        LoginController controller = loader.getController();
+
+        // Passa o ControleUsuarios para ele
+        controller.setControleUsuarios(controleUsuarios);
+
         stage.setTitle("Gerenciador de Estoque");
         stage.setScene(scene);
         stage.show();

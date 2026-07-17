@@ -22,6 +22,7 @@ public class Historico {
         this.movimentaçoes = movimentaçoes;
     }
 
+
     public void adicionarMovimentação(Movimentação movimentação){
         movimentaçoes.add(movimentação);
     }
@@ -82,17 +83,17 @@ public class Historico {
 
     public void salvarHistorico(){
         ObjectMapper mapper = new ObjectMapper();
+        mapper.findAndRegisterModules();
         try {
             mapper.writeValue(new File("../dados/historico.json"), movimentaçoes);
         } catch (IOException e) {
-            System.out.println("Erro ao salvar o historico: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
     public void carregarHistorico() throws IOException {
-
         ObjectMapper mapper = new ObjectMapper();
-
+        mapper.findAndRegisterModules();
         movimentaçoes = mapper.readValue(new File("../dados/historico.json"), new TypeReference<List<Movimentação>>() {});
     }
 

@@ -27,5 +27,7 @@ public class EntradaProduto implements Comandos{
         Movimentação entrada_de_produto = new Movimentação("Entrada de produto", quantidade, produto, usuario);
         historico.adicionarMovimentação(entrada_de_produto);
         estoque.entradaProduto(produto, quantidade);
+        estoque.salvarEstoque();
+        historico.salvarHistorico();
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblTitulo" text="Gerenciador de Estoque" />
+            <Label fx:id="lblUsuario" text="Bem vindo " />
+            <Button fx:id="btnEntrada" mnemonicParsing="false" onAction="#abrirEntrada" text="Entrada de Produtos " />
+            <Button fx:id="btnSaida" mnemonicParsing="false" onAction="#abrirSaida" text="Saída de Produtos" />
+            <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#abrirConsulta" text="Consultar Estoque" />
+            <Button fx:id="btnHistorico" mnemonicParsing="false" onAction="#abrirHistorico" text="Histórico" />
+            <Button fx:id="btnAdicionarUsuario" mnemonicParsing="false" onAction="#adicionarUsuario" text="Adicionar Usuário" />
+            <Button fx:id="btnRelatorio" mnemonicParsing="false" onAction="#gerarRelatorio" text="Gerar Relatorio" />
+            <Button fx:id="btnSair" mnemonicParsing="false" onAction="#sair" text="Sair" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
