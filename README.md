@@ -4,8 +4,8 @@ Sistema de gerenciamento de estoque desenvolvido como projeto final da disciplin
 
 ## Autores
 
-- Enzo Villani Tonuz
-- Leonardo M. Amêndola
+- Enzo Villani Tonuz - RA: 277148
+- Leonardo M. Amêndola - RA: 204382
 
 ## Objetivo
 
