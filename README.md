@@ -11,7 +11,7 @@ Sistema de gerenciamento de estoque desenvolvido como projeto final da disciplin
 
 O sistema tem como objetivo facilitar o gerenciamento de estoques de estabelecimentos comerciais, permitindo o cadastro de produtos e usuários, o controle de entradas e saídas de mercadorias, o armazenamento do histórico de movimentações e a geração de relatórios.
 
-A proposta foi desenvolvida pensando em uma solução simples, intuitiva e reutilizável para pequenos e médios estabelecimentos. fileciteturn1file1
+A proposta foi desenvolvida pensando em uma solução simples, intuitiva e reutilizável para pequenos e médios estabelecimentos.
 
 ---
 
