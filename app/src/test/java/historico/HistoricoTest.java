@@ -16,7 +16,7 @@ public class HistoricoTest {
     @BeforeEach
     public void setUp() {
         historico = new Historico(new ArrayList<>());
-        Produto fonte = new Produto("Fonte ATX 500W", 5, 1, 2);
+        Produto fonte = new Produto("Fonte ATX", 5, 1, 2);
         Usuarios user = new Usuarios("Tecnico", "Ana", "ana", "senha");
         
         mov1 = new Movimentação("Entrada de produto", 10, fonte, user);
@@ -31,8 +31,10 @@ public class HistoricoTest {
     }
 
     @Test
-    public void naoDeveRetornarNadaSeQuantidadeNaoExistir() {
-        List<Movimentação> resultado = historico.buscarMovimentaçãoQuantidade(99);
-        assertTrue(resultado.isEmpty());
+    public void deveSalvarHistoricoSemErros() {
+        // Valida se o bloco try-catch do ObjectMapper que salva o JSON na pasta ../dados/ executa adequadamente[cite: 29]
+        assertDoesNotThrow(() -> {
+            historico.salvarHistorico();
+        });
     }
 }

@@ -12,9 +12,9 @@ public class LoginControllerTest {
         LoginController controller = new LoginController();
         ControleUsuarios controle = new ControleUsuarios(new ArrayList<>());
         
-        // Garante que o método não gera NullPointer
+        // Garante que o método inicializar não gera exceções ao receber os dados[cite: 41]
         assertDoesNotThrow(() -> {
-            controller.setControleUsuarios(controle);
+            controller.inicializar(controle);
         });
         
         assertNotNull(controller);

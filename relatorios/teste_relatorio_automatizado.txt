@@ -1,0 +1,12 @@
+RELATORIO DE ESTOQUE
+---------------------
+INFORMAÇÕES GERAIS
+Quantidade de produtos cadastrados: 1
+Quantidade total de itens em estoque: 10
+Quantidade de itens abaixo da quntidade minima: 0
+Total de movimentações realizadas: 0
+ 
+SITUAÇÃO DO ESTOQUE
+Produto: Teclado  Quantidade: 10  ID: 1
+Total: 10 produtos
+ 
