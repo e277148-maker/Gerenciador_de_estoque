@@ -120,3 +120,8 @@ As principais alterações foram:
     recurso que não fazia parte da proposta original, mas que foi
     incorporado para tornar o sistema mais completo e facilitar o
     gerenciamento do estoque.
+
+# Usuário para primeiro login
+
+- Usuário: admin
+- Senha: 1234
